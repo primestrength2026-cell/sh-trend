@@ -752,6 +752,188 @@
             border-color: var(--gold);
             font-weight: 600;
         }
+
+        /* Special Section */
+        .special-section {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #0a0a0a, #111 30%, #0d0907 60%, #0a0a0a);
+        }
+        .special-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 100%, rgba(212,175,55,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .special-card {
+            position: relative;
+            background: linear-gradient(145deg, #181210, #1e1814, #141010);
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .special-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+        }
+        .special-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            background: radial-gradient(circle at 50% 0%, rgba(212,175,55,0.06), transparent 60%);
+            pointer-events: none;
+        }
+        .special-card:hover {
+            transform: translateY(-20px) scale(1.03);
+            border-color: var(--gold);
+            box-shadow: 0 40px 100px rgba(212,175,55,0.2), 0 0 60px rgba(212,175,55,0.08), inset 0 0 60px rgba(212,175,55,0.03);
+        }
+        .special-img-wrap {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+        }
+        .special-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s;
+        }
+        .special-card:hover .special-img-wrap img {
+            transform: scale(1.12);
+            filter: brightness(1.1);
+        }
+        .special-img-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.9) 100%);
+        }
+        .special-crown {
+            position: absolute;
+            top: 15px; left: 15px;
+            width: 45px; height: 45px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 20px rgba(212,175,55,0.4);
+            animation: crown-glow 2s ease-in-out infinite;
+        }
+        @keyframes crown-glow {
+            0%, 100% { box-shadow: 0 5px 20px rgba(212,175,55,0.3); }
+            50% { box-shadow: 0 5px 35px rgba(212,175,55,0.7); }
+        }
+        .special-exclusive-tag {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: linear-gradient(135deg, #b8860b, #ffd700, #b8860b);
+            background-size: 200% 200%;
+            animation: tag-shimmer 3s ease-in-out infinite;
+            color: #000;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        @keyframes tag-shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .special-info {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        .special-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 8px 0;
+        }
+        .special-price-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 12px;
+            padding: 8px 16px;
+            margin: 10px 0;
+        }
+        .special-price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-whatsapp-special {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-whatsapp-special::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-whatsapp-special:hover::before { left: 100%; }
+        .btn-whatsapp-special:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+        }
+        .special-header-glow {
+            position: relative;
+            display: inline-block;
+        }
+        .special-header-glow::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 30px;
+            background: radial-gradient(ellipse, rgba(212,175,55,0.3), transparent 70%);
+            filter: blur(10px);
+        }
+        .special-float {
+            animation: special-float 4s ease-in-out infinite;
+        }
+        @keyframes special-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
     </style>
 </head>
 <body>
@@ -774,6 +956,7 @@
     <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('active')"><i class="fas fa-times"></i></button>
     <a href="#home" class="nav-link" onclick="document.getElementById('mobileMenu').classList.remove('active')">Home</a>
     <a href="#collections" class="nav-link" onclick="document.getElementById('mobileMenu').classList.remove('active')">Collections</a>
+    <a href="#special" class="nav-link" onclick="document.getElementById('mobileMenu').classList.remove('active')" style="color:var(--gold);">★ Special</a>
     <a href="#offers" class="nav-link" onclick="document.getElementById('mobileMenu').classList.remove('active')">Offers</a>
     <a href="#about" class="nav-link" onclick="document.getElementById('mobileMenu').classList.remove('active')">About</a>
     <a href="#location" class="nav-link" onclick="document.getElementById('mobileMenu').classList.remove('active')">Location</a>
@@ -793,6 +976,7 @@
         <div class="nav-links-desktop" style="display:flex; align-items:center; gap:30px;">
             <a href="#home" class="nav-link">Home</a>
             <a href="#collections" class="nav-link">Collections</a>
+            <a href="#special" class="nav-link" style="color:var(--gold);">★ Special</a>
             <a href="#offers" class="nav-link">Offers</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#location" class="nav-link">Location</a>
@@ -901,6 +1085,41 @@
         </div>
 
         <div id="productsContainer"></div>
+    </div>
+</section>
+
+<!-- ★ SPECIAL PERFUMES SECTION ★ -->
+<section id="special" class="special-section" style="padding:100px 0;">
+    <div style="max-width:1400px; margin:0 auto; padding:0 20px; position:relative; z-index:1;">
+
+        <!-- Section Header -->
+        <div class="fade-in" style="text-align:center; margin-bottom:60px;">
+            <div style="display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.03)); border:1px solid rgba(212,175,55,0.25); border-radius:50px; padding:8px 24px; margin-bottom:20px;">
+                <span style="font-size:1.1rem;">👑</span>
+                <span style="font-size:0.75rem; color:var(--gold-light); letter-spacing:3px; text-transform:uppercase; font-weight:600;">Handpicked by Our Experts</span>
+                <span style="font-size:1.1rem;">👑</span>
+            </div>
+            <h2 class="special-header-glow" style="font-family:'Playfair Display',serif; font-size:clamp(2.2rem,5vw,4rem); font-weight:800; background:linear-gradient(135deg, #ffd700, #fff, #ffd700, #b8860b); background-size:300% 300%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:shimmer 4s ease-in-out infinite;">
+                ✦ Special Collection ✦
+            </h2>
+            <div style="width:120px; height:3px; background:linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent); margin:20px auto;"></div>
+            <p style="color:#999; max-width:650px; margin:0 auto; font-size:0.95rem; line-height:1.8;">Our most exclusive and rare fragrances — limited editions and signature scents you won't find anywhere else in Lebanon. True luxury for the distinguished connoisseur.</p>
+        </div>
+
+        <!-- Special Products Grid -->
+        <div id="specialProductsGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:30px;"></div>
+
+        <!-- Bottom CTA -->
+        <div class="fade-in" style="text-align:center; margin-top:60px;">
+            <div style="background:linear-gradient(135deg, rgba(212,175,55,0.08), rgba(0,0,0,0.3)); border:1px solid rgba(212,175,55,0.2); border-radius:20px; padding:40px; max-width:700px; margin:0 auto;">
+                <p style="font-family:'Great Vibes',cursive; font-size:1.5rem; color:var(--gold-light); margin-bottom:10px;">Interested in something truly unique?</p>
+                <p style="color:#888; font-size:0.9rem; margin-bottom:25px;">Contact us for personalized perfume consultations and exclusive access to rare fragrances.</p>
+                <a href="https://wa.me/96170580593?text=Hello%20Hamdan%20Perfume!%20%F0%9F%91%91%20I'm%20interested%20in%20your%20Special%20Collection.%20Can%20you%20tell%20me%20more%3F" target="_blank" class="btn-gold">
+                    <i class="fab fa-whatsapp"></i> Ask About Special Perfumes
+                </a>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -1407,6 +1626,101 @@ function renderProducts(filter = 'all') {
     observeElements();
 }
 
+// ========== SPECIAL PRODUCTS DATA & RENDER ==========
+const specialProducts = [
+    {
+        name: "Royal Oud Exclusive",
+        brand: "Hamdan Special",
+        desc: "An ultra-rare blend of aged Cambodian oud, Bulgarian rose, and 24K gold essence. The signature scent of royalty.",
+        price: 450,
+        volume: "100ml",
+        tag: "Ultra Rare",
+        image: "https://images.pexels.com/photos/18833913/pexels-photo-18833913.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=500"
+    },
+    {
+        name: "Noir de Nuit",
+        brand: "Hamdan Special",
+        desc: "A mysterious midnight fragrance with black amber, dark vanilla, and smoky incense. For those who own the night.",
+        price: 380,
+        volume: "75ml",
+        tag: "Limited Edition",
+        image: "https://images.pexels.com/photos/29255493/pexels-photo-29255493.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=500"
+    },
+    {
+        name: "Golden Elixir",
+        brand: "Hamdan Special",
+        desc: "Liquid gold in a bottle — precious saffron, white musk, and rare Indian sandalwood. A masterpiece of perfumery.",
+        price: 520,
+        volume: "100ml",
+        tag: "Masterpiece",
+        image: "https://images.pexels.com/photos/13599787/pexels-photo-13599787.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=500"
+    },
+    {
+        name: "Velvet Rose Supreme",
+        brand: "Hamdan Special",
+        desc: "1000 Damask roses distilled into pure elegance. Blended with precious ambergris and Tahitian vanilla.",
+        price: 400,
+        volume: "80ml",
+        tag: "Signature",
+        image: "https://images.pexels.com/photos/13800861/pexels-photo-13800861.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=500"
+    },
+    {
+        name: "Arabian Nights",
+        brand: "Hamdan Special",
+        desc: "A journey through ancient Arabian perfumery — frankincense, myrrh, aged oud, and desert rose under moonlight.",
+        price: 490,
+        volume: "100ml",
+        tag: "Exclusive",
+        image: "https://images.pexels.com/photos/8796360/pexels-photo-8796360.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=500"
+    },
+    {
+        name: "Diamond Musk Privé",
+        brand: "Hamdan Special",
+        desc: "The ultimate luxury — white diamond accord, Egyptian musk, and a whisper of French lavender. Only 100 bottles exist.",
+        price: 600,
+        volume: "50ml",
+        tag: "1 of 100",
+        image: "https://images.pexels.com/photos/18031848/pexels-photo-18031848.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=500"
+    }
+];
+
+function renderSpecialProducts() {
+    const container = document.getElementById('specialProductsGrid');
+    let html = '';
+    specialProducts.forEach((p, i) => {
+        const whatsappMsg = encodeURIComponent(`Hi Hamdan Perfume! 👑\n\nI'm interested in your SPECIAL Collection:\n\n🌟 Product: ${p.name}\n💰 Price: $${p.price}\n📦 Volume: ${p.volume}\n🏷️ Edition: ${p.tag}\n\nPlease provide more details and availability. Thank you!`);
+        html += `
+        <div class="special-card scale-in special-float" style="animation-delay:${i * 0.15}s">
+            <div class="special-img-wrap">
+                <img src="${p.image}" alt="${p.name}" loading="lazy">
+                <div class="special-img-overlay"></div>
+                <div class="special-crown">👑</div>
+                <span class="special-exclusive-tag">${p.tag}</span>
+            </div>
+            <div class="special-info">
+                <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+                    <span style="font-size:0.7rem; color:var(--gold); letter-spacing:3px; text-transform:uppercase; font-weight:600;">${p.brand}</span>
+                    <span style="color:var(--gold);">•</span>
+                    <div style="color:var(--gold); font-size:0.7rem;">★★★★★</div>
+                </div>
+                <h4 class="special-name">${p.name}</h4>
+                <p style="font-size:0.82rem; color:#999; line-height:1.7; margin-bottom:15px;">${p.desc}</p>
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+                    <div class="special-price-tag">
+                        <i class="fas fa-gem" style="color:var(--gold); font-size:0.8rem;"></i>
+                        <span class="special-price-amount">$${p.price}</span>
+                    </div>
+                    <span style="font-size:0.75rem; color:#888; background:rgba(212,175,55,0.08); padding:4px 12px; border-radius:10px; border:1px solid rgba(212,175,55,0.15);">${p.volume}</span>
+                </div>
+                <a href="https://wa.me/96170580593?text=${whatsappMsg}" target="_blank" class="btn-whatsapp-special">
+                    <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Order This Exclusive
+                </a>
+            </div>
+        </div>`;
+    });
+    container.innerHTML = html;
+}
+
 // Offer products
 function renderOfferProducts() {
     const container = document.getElementById('offerProducts');
@@ -1462,7 +1776,8 @@ function searchProducts(query) {
     const results = document.getElementById('searchResults');
     if (!query.trim()) { results.classList.remove('active'); return; }
 
-    const filtered = allProducts.filter(p =>
+    const allSearchable = [...allProducts, ...specialProducts];
+    const filtered = allSearchable.filter(p =>
         p.name.toLowerCase().includes(query.toLowerCase()) ||
         p.brand.toLowerCase().includes(query.toLowerCase()) ||
         p.desc.toLowerCase().includes(query.toLowerCase())
@@ -1565,6 +1880,7 @@ window.addEventListener('load', () => {
         setTimeout(() => {
             createParticles();
             renderProducts();
+            renderSpecialProducts();
             renderOfferProducts();
             observeElements();
             animateCounters();
